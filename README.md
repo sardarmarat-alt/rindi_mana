@@ -1,0 +1,1 @@
+# rindi_mana
