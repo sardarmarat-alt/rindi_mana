@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rindi Mana – Areni wine for corporate gifts</title>
+<meta name="description" content="Rindi Mana: Areni wine from Rind, Vayots Dzor, Armenia. Personalized wine bottles with your company logo for corporate gifts and events.">
+<meta property="og:title" content="Rindi Mana – Corporate wine gifts">
+<meta property="og:description" content="Personalized Areni wine bottles designed around your brand.">
+<meta property="og:image" content="images/areni-bottles.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E🍷%3C/text%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&family=Noto+Sans+Armenian:wght@400;600&family=Noto+Serif+Armenian:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#EEF0E8;--ink:#2A1019;--muted:#62545a;--wine:#5E1A2E;--deep:#2A1019;--leaf:#55663A;--gold:#B8975A;--card:#fff;--line:#d6d8cc;--onwine:#F3EDE4;
+--serif:'Cormorant Garamond','Noto Serif Armenian',Georgia,serif;--sans:'Inter','Noto Sans Armenian',system-ui,sans-serif;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1B0A11;--ink:#EFE8E1;--muted:#b3a3a8;--wine:#8A2A45;--card:#27121b;--line:#3d2530}}
+:root[data-theme="dark"]{--bg:#1B0A11;--ink:#EFE8E1;--muted:#b3a3a8;--wine:#8A2A45;--card:#27121b;--line:#3d2530}
+[hidden]{display:none!important}
+html{scroll-padding-top:70px}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.65 var(--sans)}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.15;margin:0 0 .5em}
+h2{font-size:clamp(2rem,6vw,3rem)}h3{font-size:1.5rem}
+p{margin:0 0 1em;max-width:62ch}
+header{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:calc(10px + env(safe-area-inset-top,0px)) 20px 10px;background:var(--deep);color:var(--onwine)}
+.logo{font:700 1.5rem var(--serif);letter-spacing:.04em;color:var(--onwine);text-decoration:none}
+.burger{background:none;border:0;width:44px;height:44px;cursor:pointer;display:grid;place-content:center;gap:6px}
+.burger span{display:block;width:26px;height:2px;background:var(--onwine);transition:.25s}
+.burger[aria-expanded=true] span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+.burger[aria-expanded=true] span:nth-child(2){opacity:0}
+.burger[aria-expanded=true] span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+nav{position:fixed;inset:0;z-index:15;background:#5E1A2E;display:flex;flex-direction:column;justify-content:center;padding:60px 40px 30px;gap:4px;transform:translateY(100%);visibility:hidden;transition:transform .8s cubic-bezier(.65,0,.25,1),visibility 0s .8s}
+nav.open{transform:none;visibility:visible;transition:transform .8s cubic-bezier(.65,0,.25,1),visibility 0s}
+nav .w{position:absolute;left:0;top:-39px;width:200%;height:40px;animation:sl 3.5s linear infinite}
+nav .w path{fill:#5E1A2E}
+nav .l{font:600 2.3rem var(--serif);color:var(--onwine);text-decoration:none;padding:6px 0;border-bottom:1px solid #ffffff22;opacity:0;transform:translateY(16px);transition:opacity .5s,transform .5s}
+nav.open .l{opacity:1;transform:none;transition-delay:calc(.45s + var(--i)*.1s)}
+.lang{margin-top:22px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;color:#d9cdc6;font-size:.9rem;opacity:0;transition:opacity .5s .95s}
+nav.open .lang{opacity:1}
+.lang button{font:500 .95rem var(--sans);color:var(--onwine);background:none;border:1px solid #ffffff55;border-radius:30px;padding:8px 16px;cursor:pointer}
+.lang button[aria-pressed=true]{background:var(--gold);color:#2A1019;border-color:var(--gold)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.hero{position:relative;background:var(--deep);color:var(--onwine);padding:110px 24px 0;overflow:hidden}
+.hero h1{font-size:clamp(2.4rem,8vw,4.6rem);max-width:16ch}
+.hero p{color:#d9cdc6;font-size:1.1rem}
+.kick{font-weight:600;letter-spacing:.14em;text-transform:uppercase;font-size:.8rem;color:var(--gold)}
+.btn{display:inline-block;background:var(--gold);color:#2A1019;font:600 1rem var(--sans);padding:14px 26px;border-radius:3px;text-decoration:none;border:0;cursor:pointer;margin:0 10px 10px 0}
+.btn.alt{background:none;color:var(--onwine);border:1px solid #ffffff66}
+.hero .wrap{max-width:1000px;margin:0 auto;display:grid;gap:10px;align-items:end}
+.hero .wrap svg{width:100%;max-width:520px;height:auto;margin:0 auto;display:block}
+.ph{padding-bottom:90px}
+.ph .in{max-width:1000px;margin:0 auto}
+.hw{position:absolute;left:0;right:0;bottom:-1px;height:44px;overflow:hidden;pointer-events:none}
+.hw svg{position:absolute;bottom:0;left:0;width:200%;height:44px;animation:sl 9s linear infinite}
+.hw svg+svg{height:30px;animation-duration:6s;animation-direction:reverse;opacity:.55}
+.hw path{fill:var(--bg)}
+@keyframes sl{to{transform:translateX(-50%)}}
+.pour{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 14%);mask-image:linear-gradient(90deg,transparent 0,#000 14%)}
+.bt{transform-origin:0 0;animation:tilt 9s ease-in-out infinite}
+@keyframes tilt{0%{transform:rotate(5deg)}12%,56%{transform:rotate(36deg)}68%,100%{transform:rotate(5deg)}}
+.st{transform-box:fill-box;transform-origin:50% 0;animation:pr 9s infinite}
+@keyframes pr{0%,12%{opacity:0;transform:scaleY(.05)}16%,56%{opacity:1;transform:scaleY(1)}60%,100%{opacity:0;transform:scaleY(1)}}
+.wl{animation:lvl 9s ease-in-out infinite}
+@keyframes lvl{0%,12%{transform:translateY(94px)}56%,90%{transform:translateY(22px)}100%{transform:translateY(94px)}}
+.sg{position:fixed;right:14px;bottom:calc(16px + env(safe-area-inset-bottom,0px));width:46px;z-index:10;pointer-events:none}
+.sg svg{display:block;width:100%;height:auto;overflow:visible}
+#lv{transition:transform .25s ease-out}
+.sw{animation:sl2 2.5s linear infinite}
+@keyframes sl2{to{transform:translateX(-40px)}}
+section{padding:72px 24px}
+.in{max-width:1000px;margin:0 auto}
+.grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-radius:6px;overflow:hidden;color:var(--ink)}
+.card .body{padding:18px 20px 22px}
+.card p{color:var(--muted);margin:0;font-size:.95rem}
+.num{font:600 2.2rem var(--serif);color:var(--gold);line-height:1}
+.band{background:var(--wine);color:var(--onwine)}
+.band p{color:#eadfd8}
+.facts{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));margin-top:24px}
+.facts div{border-left:3px solid var(--gold);padding-left:14px;color:var(--muted)}
+.facts b{display:block;font:600 1.35rem var(--serif);color:var(--ink)}
+.two{display:grid;gap:32px;align-items:center}
+@media(min-width:760px){.two{grid-template-columns:1fr 1fr}}
+.pic{width:100%;display:block;border-radius:6px;object-fit:cover;max-height:560px}
+.teaser{display:grid;grid-template-columns:130px 1fr}
+.teaser img{width:100%;height:100%;object-fit:cover;display:block}
+.link{color:var(--wine);font-weight:600;cursor:pointer;background:none;border:0;padding:0;font-size:.95rem;font-family:var(--sans);text-decoration:underline}
+.specs{display:grid;gap:14px;grid-template-columns:1fr 1fr;margin-top:22px}
+.spec{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:14px 16px}
+.spec b{display:block;font:600 1.6rem var(--serif);color:var(--wine)}
+.spec span{font-size:.85rem;color:var(--muted)}
+.slot{aspect-ratio:4/3;border:2px dashed var(--line);border-radius:6px;display:grid;place-items:center;text-align:center;color:var(--muted);font-size:.9rem;padding:12px}
+.mini{padding:14px;text-align:center;font-weight:500}
+.mini svg{width:70px;height:96px;display:block;margin:0 auto 8px}
+form{display:grid;gap:16px;grid-template-columns:1fr 1fr}
+.f{display:flex;flex-direction:column;gap:6px}.full{grid-column:1/-1}
+.f.chk{flex-direction:row;align-items:center;gap:10px}.f.chk input{width:auto}
+label{font-weight:500;font-size:.95rem}
+input,select,textarea{font:inherit;padding:12px;border:1px solid var(--line);border-radius:4px;background:var(--card);color:var(--ink);width:100%}
+textarea{min-height:110px}
+.note{font-size:.88rem;color:var(--muted)}
+#ok{display:none;background:var(--leaf);color:#fff;padding:18px;border-radius:4px;margin-top:16px}
+footer{background:var(--deep);color:#cbbdb6;padding:40px 24px;text-align:center;font-size:.9rem}
+.contact{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.contact a{color:var(--wine);font-weight:600}
+@media(prefers-color-scheme:dark){.contact a,.link{color:var(--gold)}.spec b{color:var(--gold)}}
+@media(max-width:600px){form{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header>
+<a class="logo" href="#" data-go="home">Rindi Mana</a>
+<button class="burger" id="bg" aria-label="Menu" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
+</header>
+<nav id="nav">
+<svg class="w" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 20 Q150 0 300 20 T600 20 T900 20 T1200 20 V40 H0Z"/></svg>
+<a class="l" style="--i:0" href="#" data-go="home:about" data-i18n="nav_about"></a>
+<a class="l" style="--i:1" href="#" data-go="wines" data-i18n="nav_wines"></a>
+<a class="l" style="--i:2" href="#" data-go="home:order" data-i18n="nav_order"></a>
+<a class="l" style="--i:3" href="#" data-go="home:contact" data-i18n="nav_contact"></a>
+<div class="lang"><span data-i18n="nav_lang"></span>
+<button data-l="hy" aria-pressed="false">Հայերեն</button><button data-l="en" aria-pressed="false">English</button><button data-l="ru" aria-pressed="false">Русский</button></div>
+</nav>
+
+<main id="v-home">
+<div class="hero">
+<div class="wrap">
+<div>
+<div class="kick" data-i18n="hero_kick"></div>
+<h1 data-i18n="hero_h1"></h1>
+<p data-i18n="hero_p"></p>
+<p><a class="btn" href="#" data-go="home:order" data-i18n="cta_order"></a><a class="btn alt" href="#" data-go="wines" data-i18n="cta_wines"></a></p>
+</div>
+<svg class="pour" viewBox="0 0 400 350" role="img" aria-label="Rindi Mana">
+<defs><clipPath id="pc"><path d="M205 170H305C305 230 290 262 255 264C220 262 205 230 205 170Z"/></clipPath></defs>
+<g clip-path="url(#pc)"><g class="wl"><rect x="195" y="176" width="120" height="110" fill="#9b2448"/><path class="sw" d="M195 176Q205 171 215 176T235 176T255 176T275 176T295 176T315 176T335 176T355 176T375 176V184H195Z" fill="#9b2448"/></g></g>
+<rect class="st" x="247.5" y="118" width="5" height="146" rx="2.5" fill="#9b2448"/>
+<path d="M205 170H305C305 230 290 262 255 264C220 262 205 230 205 170Z" fill="#ffffff" fill-opacity=".07" stroke="#e8dccf" stroke-opacity=".8" stroke-width="2"/>
+<path d="M255 264V300M233 304H277" stroke="#e8dccf" stroke-opacity=".8" stroke-width="3" stroke-linecap="round"/>
+<g transform="translate(250 112)"><g class="bt"><path d="M-70 -9C-100 -10-105 -30-125 -30H-300V30H-125C-105 30-100 10-70 9Z" fill="#14080d"/><rect x="-70" y="-9" width="70" height="18" rx="4" fill="#14080d"/><rect x="-14" y="-10" width="14" height="20" rx="2" fill="#B8975A"/><rect x="-250" y="-30" width="95" height="60" fill="#EEF0E8"/><circle cx="-236" cy="0" r="13" fill="none" stroke="#5E1A2E" stroke-width="1.5" stroke-dasharray="3 2"/><text x="-236" y="2.5" font-size="6" text-anchor="middle" fill="#5E1A2E" font-family="sans-serif">LOGO</text><text x="-216" y="4" font-size="11" fill="#2A1019" font-family="serif" font-weight="700">Rindi Mana</text></g></g>
+</svg>
+</div>
+<div class="hw" aria-hidden="true"><svg viewBox="0 0 1200 44" preserveAspectRatio="none"><path d="M0 22 Q150 0 300 22 T600 22 T900 22 T1200 22 V44 H0Z"/></svg><svg viewBox="0 0 1200 30" preserveAspectRatio="none"><path d="M0 15 Q100 0 200 15 T400 15 T600 15 T800 15 T1000 15 T1200 15 V30 H0Z"/></svg></div>
+</div>
+
+<section id="about">
+<div class="in">
+<h2 data-i18n="nav_about"></h2>
+<p data-i18n="about_p1"></p>
+<p data-i18n="about_p2"></p>
+<div class="facts">
+<div><b data-i18n="f1_t"></b><span data-i18n="f1_d"></span></div>
+<div><b data-i18n="f2_t"></b><span data-i18n="f2_d"></span></div>
+<div><b data-i18n="f3_t"></b><span data-i18n="f3_d"></span></div>
+</div>
+</div>
+</section>
+
+<section class="band">
+<div class="in">
+<h2 data-i18n="wt_h"></h2>
+<div class="card teaser"><img src="images/areni-bottles.jpg" alt="Rindi Mana Areni"><div class="body"><h3 data-i18n="wt_name"></h3><p data-i18n="wt_p"></p><p style="margin-top:10px"><button class="link" data-go="wines" data-i18n="wt_more"></button></p></div></div>
+</div>
+</section>
+
+<section>
+<div class="in">
+<h2 data-i18n="cu_h"></h2>
+<p data-i18n="cu_p"></p>
+<div class="grid">
+<div class="card"><div class="body"><div class="num">01</div><h3 data-i18n="c1_t"></h3><p data-i18n="c1_d"></p></div></div>
+<div class="card"><div class="body"><div class="num">02</div><h3 data-i18n="c2_t"></h3><p data-i18n="c2_d"></p></div></div>
+<div class="card"><div class="body"><div class="num">03</div><h3 data-i18n="c3_t"></h3><p data-i18n="c3_d"></p></div></div>
+</div>
+<p class="note" style="margin-top:16px" data-i18n="cu_note"></p>
+</div>
+</section>
+
+<section class="band">
+<div class="in">
+<h2 data-i18n="pr_h"></h2>
+<div class="grid">
+<div class="card"><div class="body"><div class="num">1</div><h3 data-i18n="p1_t"></h3><p data-i18n="p1_d"></p></div></div>
+<div class="card"><div class="body"><div class="num">2</div><h3 data-i18n="p2_t"></h3><p data-i18n="p2_d"></p></div></div>
+<div class="card"><div class="body"><div class="num">3</div><h3 data-i18n="p3_t"></h3><p data-i18n="p3_d"></p></div></div>
+</div>
+</div>
+</section>
+
+<section id="order">
+<div class="in">
+<h2 data-i18n="nav_order"></h2>
+<p data-i18n="or_p"></p>
+<form id="f">
+<div class="f"><label for="co" data-i18n="l_co"></label><input id="co" required></div>
+<div class="f"><label for="nm" data-i18n="l_nm"></label><input id="nm" required autocomplete="name"></div>
+<div class="f"><label for="em" data-i18n="l_em"></label><input id="em" type="email" required autocomplete="email"></div>
+<div class="f"><label for="ph" data-i18n="l_ph"></label><input id="ph" type="tel" autocomplete="tel"></div>
+<div class="f full"><label for="ty" data-i18n="l_ty"></label><select id="ty"><option data-i18n="ty1"></option><option data-i18n="ty2"></option><option data-i18n="ty3"></option></select></div>
+<div class="f"><label for="qt" data-i18n="l_qt"></label><input id="qt" type="number" min="1" required></div>
+<div class="f"><label for="dt" data-i18n="l_dt"></label><input id="dt" type="date"></div>
+<div class="f"><label for="pk" data-i18n="l_pk"></label><select id="pk"><option data-i18n="pk0"></option><option data-i18n="pk1"></option><option data-i18n="pk2"></option><option data-i18n="pk3"></option><option data-i18n="pk4"></option></select></div>
+<div class="f"><label for="st" data-i18n="l_st"></label><select id="st"><option data-i18n="st0"></option><option data-i18n="st1"></option><option data-i18n="st2"></option><option data-i18n="st3"></option><option data-i18n="st4"></option></select></div>
+<div class="f chk full"><input id="tt" type="checkbox"><label for="tt" data-i18n="l_tt"></label></div>
+<div class="f full"><label for="lg" data-i18n="l_lg"></label><input id="lg" type="file" accept="image/*,.pdf,.svg,.ai"><span class="note" data-i18n="n_lg"></span></div>
+<div class="f full"><label for="ms" data-i18n="l_ms"></label><textarea id="ms" data-ph="ph_ms"></textarea></div>
+<div class="full"><button class="btn" type="submit" data-i18n="b_send"></button></div>
+</form>
+<div id="ok" role="status" data-i18n="ok"></div>
+</div>
+</section>
+
+<section id="contact" style="padding-top:0">
+<div class="in">
+<h2 data-i18n="nav_contact"></h2>
+<div class="contact">
+<div><b data-i18n="ct_mail"></b><br><a href="mailto:kamari.cheese@gmail.com">kamari.cheese@gmail.com</a></div>
+<div><b data-i18n="ct_phone"></b><br><a href="tel:+37444530909">044 53 09 09</a><br><a href="tel:+37496190424">096 19 04 24</a></div>
+<div><b>Instagram</b><br><a href="https://www.instagram.com/kamari_cheese_wine" target="_blank" rel="noopener">@kamari_cheese_wine</a></div>
+<div><b data-i18n="ct_find"></b><br><span data-i18n="ct_addr"></span></div>
+</div>
+</div>
+</section>
+</main>
+
+<main id="v-wines" hidden>
+<div class="hero ph">
+<div class="in">
+<div class="kick">Rindi Mana</div>
+<h1 data-i18n="nav_wines"></h1>
+<p data-i18n="w_p"></p>
+</div>
+<div class="hw" aria-hidden="true"><svg viewBox="0 0 1200 44" preserveAspectRatio="none"><path d="M0 22 Q150 0 300 22 T600 22 T900 22 T1200 22 V44 H0Z"/></svg><svg viewBox="0 0 1200 30" preserveAspectRatio="none"><path d="M0 15 Q100 0 200 15 T400 15 T600 15 T800 15 T1000 15 T1200 15 V30 H0Z"/></svg></div>
+</div>
+
+<section>
+<div class="in two">
+<img class="pic" src="images/areni-bottles.jpg" alt="Rindi Mana Areni">
+<div>
+<h2 data-i18n="wt_name"></h2>
+<p data-i18n="wt_p"></p>
+<div class="specs">
+<div class="spec"><b data-i18n="v_size"></b><span data-i18n="s_size"></span></div>
+<div class="spec"><b>13%</b><span data-i18n="s_alc"></span></div>
+<div class="spec"><b data-i18n="v_grape"></b><span data-i18n="s_grape"></span></div>
+<div class="spec"><b data-i18n="v_cap"></b><span data-i18n="s_cap"></span></div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="band">
+<div class="in">
+<h2 data-i18n="g_h"></h2>
+<p data-i18n="g_p"></p>
+<div class="grid">
+<div class="slot" data-i18n="g1"></div><div class="slot" data-i18n="g1"></div><div class="slot" data-i18n="g2"></div><div class="slot" data-i18n="g2"></div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="in two">
+<img class="pic" src="images/sample-label.jpg" alt="Sample bottle with a company label" style="max-height:480px">
+<div>
+<h2 data-i18n="lb_h"></h2>
+<p data-i18n="lb_p"></p>
+<p class="note" data-i18n="lb_s"></p>
+</div>
+</div>
+</section>
+
+<section style="padding-top:0">
+<div class="in">
+<h2 data-i18n="sty_h"></h2>
+<div class="grid">
+<div class="card mini"><svg viewBox="0 0 70 96"><rect width="70" height="96" rx="4" fill="#EDE3CF"/><rect x="8" y="10" width="54" height="76" fill="none" stroke="#7a1d3a" stroke-width="1.5"/><circle cx="35" cy="34" r="8" fill="#7a1d3a"/><rect x="18" y="54" width="34" height="4" fill="#2A1019"/><rect x="24" y="64" width="22" height="3" fill="#7a1d3a"/></svg><span data-i18n="st1"></span></div>
+<div class="card mini"><svg viewBox="0 0 70 96"><rect width="70" height="96" rx="4" fill="#15090d"/><circle cx="35" cy="32" r="9" fill="none" stroke="#B8975A" stroke-width="1.5"/><rect x="16" y="54" width="38" height="3" fill="#B8975A"/><rect x="24" y="64" width="22" height="2" fill="#B8975A"/></svg><span data-i18n="st2"></span></div>
+<div class="card mini"><svg viewBox="0 0 70 96"><rect width="70" height="96" rx="4" fill="#F4F4EF"/><rect width="70" height="38" rx="4" fill="#55663A"/><rect x="14" y="52" width="42" height="5" fill="#2A1019"/><rect x="14" y="64" width="26" height="3" fill="#8a7f83"/></svg><span data-i18n="st3"></span></div>
+<div class="card mini"><svg viewBox="0 0 70 96"><rect width="70" height="96" rx="4" fill="#fff" stroke="#d6d8cc"/><rect x="26" y="42" width="18" height="2" fill="#2A1019"/><rect x="22" y="52" width="26" height="2" fill="#8a7f83"/></svg><span data-i18n="st4"></span></div>
+</div>
+</div>
+</section>
+
+<section class="band">
+<div class="in">
+<h2 data-i18n="pa_h"></h2>
+<div class="grid">
+<div class="card mini"><svg viewBox="0 0 70 96"><rect x="8" y="30" width="54" height="56" rx="3" fill="#5E1A2E"/><rect x="8" y="30" width="54" height="12" fill="#7a1d3a"/><rect x="31" y="30" width="8" height="56" fill="#B8975A"/></svg><span data-i18n="pk1"></span></div>
+<div class="card mini"><svg viewBox="0 0 70 96"><rect x="8" y="26" width="54" height="60" rx="2" fill="#b98a55"/><path d="M8 44H62M8 62H62" stroke="#8a6238" stroke-width="2"/><rect x="26" y="50" width="18" height="8" fill="#8a6238"/></svg><span data-i18n="pk2"></span></div>
+<div class="card mini"><svg viewBox="0 0 70 96"><path d="M12 34H58L62 88H8Z" fill="#7a1d3a"/><path d="M24 34C24 14 46 14 46 34" fill="none" stroke="#B8975A" stroke-width="3"/></svg><span data-i18n="pk3"></span></div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="in">
+<h2 data-i18n="by_h"></h2>
+<p data-i18n="by_p"></p>
+<button class="btn" data-go="home:order" data-i18n="by_b"></button>
+</div>
+</section>
+</main>
+
+<footer>KAMARI LLC • RINDI MANA</footer>
+
+<div class="sg" aria-hidden="true"><svg viewBox="0 0 60 100"><defs><clipPath id="gc"><path d="M8 6H52C52 40 46 56 30 58C14 56 8 40 8 6Z"/></clipPath></defs><g clip-path="url(#gc)"><g id="lv" style="transform:translateY(58px)"><rect x="0" y="0" width="60" height="70" fill="#8a1f40"/><path class="sw" d="M0 4Q10 0 20 4T40 4T60 4T80 4T100 4V8H0Z" transform="translate(0 -4)" fill="#8a1f40"/></g></g><path d="M8 6H52C52 40 46 56 30 58C14 56 8 40 8 6Z" fill="none" stroke="#B8975A" stroke-width="2"/><path d="M30 58V90M18 92H42" stroke="#B8975A" stroke-width="2.5" stroke-linecap="round"/></svg></div>
+
+<script>
+var T={
+en:{nav_about:"About us",nav_wines:"Our wine",nav_order:"Order form",nav_contact:"Contact",nav_lang:"Language",
+hero_kick:"Corporate wine gifts",hero_h1:"Wine bottles made around your brand",hero_p:"Personalized Areni wine from Rind, Vayots Dzor, Armenia. Your logo and design on every bottle.",cta_order:"Request an order",cta_wines:"See our wine",
+about_p1:"Rindi Mana is the wine of KAMARI LLC, made from Areni grapes grown in Rind village, Vayots Dzor, Armenia.",about_p2:"We make wine bottles with your company logo and a custom design, as gifts for clients, business partners and employees, or for your corporate event.",
+f1_t:"Your logo",f1_d:"Custom label on every bottle",f2_t:"2,000–5,000 bottles",f2_d:"Production capacity",f3_t:"Tasting",f3_d:"Can be arranged by appointment",
+wt_h:"Our wine",wt_name:"Areni from Rind",wt_p:"Dry red wine made from Areni grapes grown in Rind village, Vayots Dzor, Armenia.",wt_more:"More about our wine",
+cu_h:"Made to match your brand",cu_p:"We work with you to develop a look that fits your company’s identity.",c1_t:"Choose a design",c1_d:"We present design options.",c2_t:"Your brand",c2_d:"We tailor the label to your logo and style.",c3_t:"Packaging",c3_d:"We discuss bottle and gift-packaging options.",cu_note:"The final design is agreed before the order is confirmed.",
+pr_h:"A simple process",p1_t:"Get in touch",p1_d:"Share your preferences and estimated quantity.",p2_t:"Tasting & design",p2_d:"We arrange a tasting and discuss the design, if you wish.",p3_t:"Confirm the order",p3_d:"We agree on quantity, pricing and delivery terms.",
+or_p:"Tell us about your company and your needs. We will reply to discuss design options, quantity and price.",
+l_co:"Company name",l_nm:"Contact person",l_em:"Email",l_ph:"Phone",l_ty:"What do you need?",ty1:"Wine for a corporate event",ty2:"Bottles with our logo (gifts)",ty3:"Both",l_qt:"Estimated number of bottles",l_dt:"Event or delivery date",l_pk:"Packaging",pk0:"Not sure yet",pk1:"Gift box",pk2:"Wooden box",pk3:"Gift bag",pk4:"Bottle only",l_st:"Label style",st0:"Not sure yet",st1:"Classic",st2:"Premium",st3:"Modern",st4:"Minimal",l_tt:"I would like a tasting",l_lg:"Company logo",n_lg:"Your email app opens when you send. Attach the logo file to that email.",l_ms:"Details",ph_ms:"Event type, delivery address, label wishes",b_send:"Send request",ok:"Thank you. Your email app should open with your request. If it does not, write to kamari.cheese@gmail.com.",
+ct_mail:"Email",ct_phone:"Phone",ct_find:"Find us",ct_addr:"Areni • Rind, Vayots Dzor, Armenia",
+w_p:"Dry red wine from Areni grapes, grown in Rind, Vayots Dzor, Armenia.",v_size:"0.75 L",v_grape:"Areni",v_cap:"2,000–5,000",s_size:"Bottle size",s_alc:"Alcohol",s_grape:"Grape variety",s_cap:"Production capacity (bottles)",
+g_h:"Bottles and vineyards",g_p:"Photos of our bottles and vineyards. More photos will be added soon.",g1:"Bottle photo",g2:"Vineyard photo",
+lb_h:"Your label on our wine",lb_p:"A sample bottle with a company’s own label. Your logo and colours can go on the same wine.",lb_s:"Sample label for illustration.",sty_h:"Label styles",pa_h:"Packaging options",
+by_h:"Order for your company",by_p:"Order our wine for corporate events, or as gifts with your logo.",by_b:"Go to the order form"},
+hy:{nav_about:"Մեր մասին",nav_wines:"Մեր գինին",nav_order:"Պատվերի ձև",nav_contact:"Կապ",nav_lang:"Լեզու",
+hero_kick:"Կորպորատիվ նվերներ",hero_h1:"Անհատականացված գինու շշեր՝ Ձեր ընկերության ոճով",hero_p:"Արենի գինի Ռինդից, Վայոց ձոր, Հայաստան։ Ձեր տարբերանշանը և դիզայնը՝ յուրաքանչյուր շշի վրա։",cta_order:"Ուղարկել պատվեր",cta_wines:"Տեսնել մեր գինին",
+about_p1:"Ռինդի Մանան KAMARI ՍՊԸ-ի գինին է՝ պատրաստված Վայոց ձորի մարզի Ռինդ գյուղում աճեցված Արենի խաղողից։",about_p2:"Մենք պատրաստում ենք Ձեր ընկերության տարբերանշանով և անհատական դիզայնով գինու շշեր՝ հաճախորդների, գործընկերների և աշխատակիցների համար, ինչպես նաև կորպորատիվ միջոցառումների համար։",
+f1_t:"Ձեր տարբերանշանը",f1_d:"Անհատական պիտակ յուրաքանչյուր շշի վրա",f2_t:"2,000–5,000 շիշ",f2_d:"Արտադրության հնարավոր ծավալ",f3_t:"Համտես",f3_d:"Հնարավոր է նախապես պայմանավորվելով",
+wt_h:"Մեր գինին",wt_name:"Արենի՝ Ռինդից",wt_p:"Չոր կարմիր գինի՝ պատրաստված Վայոց ձորի մարզի Ռինդ գյուղում աճեցված Արենի տեսակի խաղողից։",wt_more:"Ավելին մեր գինու մասին",
+cu_h:"Համապատասխանեցված Ձեր բրենդին",cu_p:"Մենք համագործակցում ենք Ձեզ հետ՝ Ձեր ընկերության ոճին համապատասխան տարբերակ մշակելու համար։",c1_t:"Դիզայնի ընտրություն",c1_d:"Ներկայացնում ենք դիզայնի տարբերակներ։",c2_t:"Ձեր բրենդը",c2_d:"Հարմարեցնում ենք պիտակը Ձեր տարբերանշանին և ոճին։",c3_t:"Փաթեթավորում",c3_d:"Քննարկում ենք շշի և նվերային փաթեթավորման տարբերակները։",cu_note:"Վերջնական տարբերակը համաձայնեցվում է պատվերից առաջ։",
+pr_h:"Պարզ գործընթաց",p1_t:"Կապ հաստատեք",p1_d:"Ներկայացրեք Ձեր նախընտրությունները և մոտավոր քանակը։",p2_t:"Համտես և դիզայն",p2_d:"Ցանկության դեպքում կազմակերպում ենք համտես և քննարկում դիզայնը։",p3_t:"Համաձայնեցում",p3_d:"Համաձայնեցնում ենք քանակը, գինը և մատակարարման պայմանները։",
+or_p:"Պատմեք մեզ Ձեր ընկերության և կարիքների մասին։ Մենք կպատասխանենք՝ քննարկելու դիզայնի տարբերակները, քանակը և գինը։",
+l_co:"Ընկերության անվանումը",l_nm:"Կոնտակտային անձ",l_em:"Էլ. փոստ",l_ph:"Հեռախոս",l_ty:"Ի՞նչ է Ձեզ անհրաժեշտ",ty1:"Գինի կորպորատիվ միջոցառման համար",ty2:"Ձեր տարբերանշանով շշեր (նվերների համար)",ty3:"Երկուսն էլ",l_qt:"Շշերի մոտավոր քանակը",l_dt:"Միջոցառման կամ առաքման ամսաթիվ",l_pk:"Փաթեթավորում",pk0:"Դեռ չգիտեմ",pk1:"Նվերային տուփ",pk2:"Փայտե տուփ",pk3:"Նվերային պայուսակ",pk4:"Միայն շիշ",l_st:"Պիտակի ոճ",st0:"Դեռ չգիտեմ",st1:"Դասական",st2:"Պրեմիում",st3:"Ժամանակակից",st4:"Մինիմալիստական",l_tt:"Ցանկանում եմ համտես",l_lg:"Ընկերության տարբերանշան",n_lg:"Ուղարկելիս կբացվի Ձեր էլ. փոստի ծրագիրը։ Տարբերանշանի ֆայլը կցեք այդ նամակին։",l_ms:"Մանրամասներ",ph_ms:"Միջոցառման տեսակը, առաքման հասցեն, պիտակի ցանկությունները",b_send:"Ուղարկել հարցումը",ok:"Շնորհակալություն։ Ձեր էլ. փոստի ծրագիրը պետք է բացվի Ձեր հարցումով։ Եթե չբացվի, գրեք kamari.cheese@gmail.com հասցեին։",
+ct_mail:"Էլ. փոստ",ct_phone:"Հեռախոս",ct_find:"Գտեք մեզ",ct_addr:"Արենի • Ռինդ, Վայոց ձոր, Հայաստան",
+w_p:"Չոր կարմիր գինի Արենի խաղողից, աճեցված Ռինդում, Վայոց ձոր, Հայաստան։",v_size:"0.75 լ",v_grape:"Արենի",v_cap:"2,000–5,000",s_size:"Շշի տարողություն",s_alc:"Ալկոհոլ",s_grape:"Խաղողի տեսակ",s_cap:"Արտադրության հնարավոր ծավալ (շիշ)",
+g_h:"Շշեր և խաղողի այգիներ",g_p:"Մեր շշերի և խաղողի այգիների լուսանկարները։ Շուտով կավելացվեն նոր նկարներ։",g1:"Շշի լուսանկար",g2:"Այգու լուսանկար",
+lb_h:"Ձեր պիտակը մեր գինու վրա",lb_p:"Շիշ՝ ընկերության սեփական պիտակով։ Նույն գինու վրա կարող են լինել Ձեր տարբերանշանը և գույները։",lb_s:"Պիտակի օրինակ՝ պատկերացման համար։",sty_h:"Պիտակի ոճեր",pa_h:"Փաթեթավորման տարբերակներ",
+by_h:"Պատվեր Ձեր ընկերության համար",by_p:"Պատվիրեք մեր գինին կորպորատիվ միջոցառումների համար կամ որպես նվեր՝ Ձեր տարբերանշանով։",by_b:"Անցնել պատվերի ձևին"},
+ru:{nav_about:"О нас",nav_wines:"Наше вино",nav_order:"Форма заказа",nav_contact:"Контакты",nav_lang:"Язык",
+hero_kick:"Корпоративные подарки",hero_h1:"Бутылки вина в стиле вашей компании",hero_p:"Персонализированное вино Арени из Ринда, Вайоц Дзор, Армения. Ваш логотип и дизайн на каждой бутылке.",cta_order:"Оставить заявку",cta_wines:"Посмотреть наше вино",
+about_p1:"Rindi Mana — вино компании KAMARI LLC, сделанное из винограда сорта Арени, выращенного в селе Ринд, Вайоц Дзор, Армения.",about_p2:"Мы делаем бутылки вина с логотипом вашей компании и индивидуальным дизайном: в подарок клиентам, партнёрам и сотрудникам, а также для корпоративных мероприятий.",
+f1_t:"Ваш логотип",f1_d:"Индивидуальная этикетка на каждой бутылке",f2_t:"2 000–5 000 бутылок",f2_d:"Возможный объём производства",f3_t:"Дегустация",f3_d:"По предварительной договорённости",
+wt_h:"Наше вино",wt_name:"Арени из Ринда",wt_p:"Сухое красное вино из винограда сорта Арени, выращенного в селе Ринд, Вайоц Дзор, Армения.",wt_more:"Подробнее о вине",
+cu_h:"В стиле вашего бренда",cu_p:"Мы вместе с вами разрабатываем вариант, который соответствует имиджу вашей компании.",c1_t:"Выбор дизайна",c1_d:"Мы предлагаем варианты дизайна.",c2_t:"Ваш бренд",c2_d:"Подгоняем этикетку под ваш логотип и стиль.",c3_t:"Упаковка",c3_d:"Обсуждаем варианты бутылки и подарочной упаковки.",cu_note:"Окончательный вариант согласовывается до подтверждения заказа.",
+pr_h:"Простой процесс",p1_t:"Свяжитесь с нами",p1_d:"Сообщите ваши пожелания и примерное количество.",p2_t:"Дегустация и дизайн",p2_d:"По желанию организуем дегустацию и обсуждаем дизайн.",p3_t:"Согласование",p3_d:"Согласовываем количество, цену и условия поставки.",
+or_p:"Расскажите о вашей компании и потребностях. Мы ответим, чтобы обсудить варианты дизайна, количество и цену.",
+l_co:"Название компании",l_nm:"Контактное лицо",l_em:"Эл. почта",l_ph:"Телефон",l_ty:"Что вам нужно?",ty1:"Вино для корпоративного мероприятия",ty2:"Бутылки с нашим логотипом (подарки)",ty3:"И то, и другое",l_qt:"Примерное количество бутылок",l_dt:"Дата мероприятия или доставки",l_pk:"Упаковка",pk0:"Пока не знаю",pk1:"Подарочная коробка",pk2:"Деревянный ящик",pk3:"Подарочный пакет",pk4:"Только бутылка",l_st:"Стиль этикетки",st0:"Пока не знаю",st1:"Классика",st2:"Премиум",st3:"Современный",st4:"Минимализм",l_tt:"Хочу дегустацию",l_lg:"Логотип компании",n_lg:"При отправке откроется ваша почтовая программа. Прикрепите файл логотипа к этому письму.",l_ms:"Подробности",ph_ms:"Тип мероприятия, адрес доставки, пожелания по этикетке",b_send:"Отправить заявку",ok:"Спасибо. Ваша почтовая программа должна открыться с вашей заявкой. Если этого не произошло, напишите на kamari.cheese@gmail.com.",
+ct_mail:"Эл. почта",ct_phone:"Телефон",ct_find:"Как нас найти",ct_addr:"Арени • Ринд, Вайоц Дзор, Армения",
+w_p:"Сухое красное вино из винограда Арени, выращенного в Ринде, Вайоц Дзор, Армения.",v_size:"0,75 л",v_grape:"Арени",v_cap:"2 000–5 000",s_size:"Объём бутылки",s_alc:"Алкоголь",s_grape:"Сорт винограда",s_cap:"Возможный объём производства (бутылок)",
+g_h:"Бутылки и виноградники",g_p:"Фотографии наших бутылок и виноградников. Скоро добавим новые.",g1:"Фото бутылки",g2:"Фото виноградника",
+lb_h:"Ваша этикетка на нашем вине",lb_p:"Бутылка с собственной этикеткой компании. Ваш логотип и цвета можно разместить на этом же вине.",lb_s:"Пример этикетки для наглядности.",sty_h:"Стили этикеток",pa_h:"Варианты упаковки",
+by_h:"Заказ для вашей компании",by_p:"Закажите наше вино для корпоративных мероприятий или в подарок с вашим логотипом.",by_b:"Перейти к форме заказа"}
+};
+var L='en',bg=document.getElementById('bg'),nv=document.getElementById('nav'),lv=document.getElementById('lv');
+function setL(l){
+L=l;var d=T[l];document.documentElement.lang=l;
+document.querySelectorAll('[data-i18n]').forEach(function(e){var v=d[e.dataset.i18n];if(v!=null)e.textContent=v});
+document.querySelectorAll('[data-ph]').forEach(function(e){e.placeholder=d[e.dataset.ph]||''});
+document.querySelectorAll('.lang button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.l===l)});
+try{localStorage.setItem('rm_l',l)}catch(e){}
+}
+function tg(o){nv.classList.toggle('open',o);bg.setAttribute('aria-expanded',o)}
+function fill(){var m=document.documentElement.scrollHeight-innerHeight,p=m>0?Math.min(1,Math.max(0,scrollY/m)):0;lv.style.transform='translateY('+(58-p*46)+'px)'}
+function go(v,id){
+document.getElementById('v-home').hidden=v!=='home';document.getElementById('v-wines').hidden=v!=='wines';
+tg(false);
+var el=id&&document.getElementById(id);
+if(el){setTimeout(function(){el.scrollIntoView({behavior:'smooth'})},40)}else{scrollTo(0,0)}
+try{history.replaceState(null,'','#'+v)}catch(e){}
+setTimeout(fill,120);
+}
+document.addEventListener('click',function(e){
+var a=e.target.closest('[data-go]');
+if(a){e.preventDefault();var p=a.dataset.go.split(':');go(p[0],p[1])}
+var b=e.target.closest('.lang button');if(b)setL(b.dataset.l);
+});
+bg.onclick=function(){tg(!nv.classList.contains('open'))};
+document.addEventListener('keydown',function(e){if(e.key==='Escape')tg(false)});
+addEventListener('scroll',fill,{passive:true});
+document.getElementById('f').onsubmit=function(e){
+e.preventDefault();
+var g=function(i){return document.getElementById(i).value};
+var sel=function(i){var s=document.getElementById(i);return s.options[s.selectedIndex].text};
+var f=document.getElementById('lg').files[0];
+var b='Company: '+g('co')+'\nContact: '+g('nm')+'\nEmail: '+g('em')+'\nPhone: '+g('ph')+'\nRequest: '+sel('ty')+'\nBottles: '+g('qt')+'\nDate: '+g('dt')+'\nPackaging: '+sel('pk')+'\nLabel style: '+sel('st')+'\nTasting: '+(document.getElementById('tt').checked?'yes':'no')+'\nLogo file: '+(f?f.name+' (attached separately)':'none')+'\nPage language: '+L+'\n\n'+g('ms');
+document.getElementById('ok').style.display='block';
+location.href='mailto:kamari.cheese@gmail.com?subject='+encodeURIComponent('Order request – '+g('co'))+'&body='+encodeURIComponent(b);
+};
+var sl=null;try{sl=localStorage.getItem('rm_l')}catch(e){}
+var nl=(navigator.language||'en').slice(0,2).toLowerCase();
+setL(T[sl]?sl:(T[nl]?nl:'en'));
+if((location.hash||'').slice(1)==='wines')go('wines');
+fill();
+</script>
+</body>
+</html>
