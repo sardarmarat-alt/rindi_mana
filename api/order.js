@@ -17,7 +17,10 @@ module.exports = async (req, res) => {
   if (req.method !== 'POST') return res.status(405).json({ error: 'method' });
 
   const { SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY: KEY, RESEND_API_KEY, ORDER_TO_EMAIL, ORDER_FROM_EMAIL, IP_SALT } = process.env;
-  if (!SUPABASE_URL || !KEY || !RESEND_API_KEY || !ORDER_TO_EMAIL) return res.status(500).json({ error: 'config' });
+  if (!SUPABASE_URL || !KEY || !RESEND_API_KEY || !ORDER_TO_EMAIL) {
+    console.error('Missing env vars:', ['SUPABASE_URL', 'SUPABASE_SERVICE_ROLE_KEY', 'RESEND_API_KEY', 'ORDER_TO_EMAIL'].filter((k) => !process.env[k]).join(', '));
+    return res.status(500).json({ error: 'config' });
+  }
 
   const b = req.body && typeof req.body === 'object' ? req.body : {};
 
@@ -63,10 +66,16 @@ module.exports = async (req, res) => {
       headers: { apikey: KEY, Authorization: 'Bearer ' + KEY, 'Content-Type': 'application/json', ...(init.headers || {}) },
     });
 
+  // If something fails after the slot was taken, give the slot back so the visitor can retry at once.
+  const release = () => sb('rate_limits?ip_hash=eq.' + ipHash, { method: 'DELETE' }).catch(() => {});
+
   try {
     // Rate limit: one order per IP per 10 minutes (atomic in the database)
     const slot = await sb('rpc/claim_slot', { method: 'POST', body: JSON.stringify({ p_ip: ipHash }) });
-    if (!slot.ok) return res.status(500).json({ error: 'db' });
+    if (!slot.ok) {
+      console.error('claim_slot failed', slot.status, await slot.text());
+      return res.status(500).json({ error: 'db' });
+    }
     if ((await slot.json()) !== true) return res.status(429).json({ error: 'rate' });
 
     // Save the order
@@ -75,7 +84,11 @@ module.exports = async (req, res) => {
       headers: { Prefer: 'return=minimal' },
       body: JSON.stringify({ ...o, has_logo: !!attachment, ip_hash: ipHash }),
     });
-    if (!saved.ok) return res.status(500).json({ error: 'db' });
+    if (!saved.ok) {
+      console.error('orders insert failed', saved.status, await saved.text());
+      await release();
+      return res.status(500).json({ error: 'db' });
+    }
 
     // Email it
     const row = (k, v) => `<tr><td style="padding:4px 12px 4px 0;color:#666">${esc(k)}</td><td style="padding:4px 0"><b>${esc(v || '-')}</b></td></tr>`;
@@ -92,9 +105,14 @@ module.exports = async (req, res) => {
         attachments: attachment ? [attachment] : undefined,
       }),
     });
-    if (!mail.ok) return res.status(502).json({ error: 'email' });
+    if (!mail.ok) {
+      console.error('Resend failed', mail.status, await mail.text());
+      await release();
+      return res.status(502).json({ error: 'email' });
+    }
     return res.status(200).json({ ok: true });
   } catch (e) {
+    console.error('order handler error', e);
     return res.status(500).json({ error: 'server' });
   }
 };
