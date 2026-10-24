@@ -7,7 +7,6 @@
 <meta name="description" content="Rindi Mana: Areni wine from Rind, Vayots Dzor, Armenia. Personalized wine bottles with your company logo for corporate gifts and events.">
 <meta property="og:title" content="Rindi Mana – Corporate wine gifts">
 <meta property="og:description" content="Personalized Areni wine bottles designed around your brand.">
-<meta property="og:image" content="images/areni-bottles.jpg">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E🍷%3C/text%3E%3C/svg%3E">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600&family=Noto+Sans+Armenian:wght@400;600&family=Noto+Serif+Armenian:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
@@ -36,10 +35,16 @@ nav .w{position:absolute;left:0;top:-39px;width:200%;height:40px;animation:sl 3.
 nav .w path{fill:#5E1A2E}
 nav .l{font:600 2.3rem var(--serif);color:var(--onwine);text-decoration:none;padding:6px 0;border-bottom:1px solid #ffffff22;opacity:0;transform:translateY(16px);transition:opacity .5s,transform .5s}
 nav.open .l{opacity:1;transform:none;transition-delay:calc(.45s + var(--i)*.1s)}
-.lang{margin-top:22px;display:flex;gap:10px;flex-wrap:wrap;align-items:center;color:#d9cdc6;font-size:.9rem;opacity:0;transition:opacity .5s .95s}
-nav.open .lang{opacity:1}
-.lang button{font:500 .95rem var(--sans);color:var(--onwine);background:none;border:1px solid #ffffff55;border-radius:30px;padding:8px 16px;cursor:pointer}
-.lang button[aria-pressed=true]{background:var(--gold);color:#2A1019;border-color:var(--gold)}
+.hr{display:flex;align-items:center;gap:2px}
+.gl{background:none;border:0;width:44px;height:44px;cursor:pointer;display:grid;place-content:center;color:var(--onwine)}
+.gl svg{width:26px;height:26px}
+.lp{position:fixed;top:calc(62px + env(safe-area-inset-top,0px));right:12px;z-index:30;background:var(--deep);border:1px solid #ffffff33;border-radius:8px;padding:6px;display:none;min-width:200px;box-shadow:0 12px 30px #0007}
+.lp.open{display:block}
+.lp button{display:flex;align-items:center;gap:12px;width:100%;background:none;border:0;color:var(--onwine);font:500 1rem var(--sans);padding:10px 12px;border-radius:6px;cursor:pointer;text-align:left}
+.lp button:hover,.lp button[aria-pressed=true]{background:#ffffff1a}
+.lp button[aria-pressed=true]::after{content:"✓";margin-left:auto;color:var(--gold)}
+.fl{width:30px;height:20px;border-radius:3px;box-shadow:0 0 0 1px #ffffff40;flex:none}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
 .hero{position:relative;background:var(--deep);color:var(--onwine);padding:110px 24px 0;overflow:hidden}
 .hero h1{font-size:clamp(2.4rem,8vw,4.6rem);max-width:16ch}
@@ -112,16 +117,25 @@ footer{background:var(--deep);color:#cbbdb6;padding:40px 24px;text-align:center;
 <body>
 <header>
 <a class="logo" href="#" data-go="home">Rindi Mana</a>
-<button class="burger" id="bg" aria-label="Menu" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
+<div class="hr"><button class="gl" id="gb" aria-label="Language" aria-expanded="false" aria-controls="lp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9.5"/><path d="M2.5 12h19M12 2.5c3 3.2 3 16.8 0 19M12 2.5c-3 3.2-3 16.8 0 19"/></svg></button>
+<button class="burger" id="bg" aria-label="Menu" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button></div>
 </header>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="fl-am" viewBox="0 0 30 20"><rect width="30" height="6.7" fill="#D90012"/><rect y="6.6" width="30" height="6.8" fill="#0033A0"/><rect y="13.3" width="30" height="6.7" fill="#F2A800"/></symbol>
+<symbol id="fl-ru" viewBox="0 0 30 20"><rect width="30" height="20" fill="#fff"/><rect y="6.6" width="30" height="6.8" fill="#0039A6"/><rect y="13.3" width="30" height="6.7" fill="#D52B1E"/></symbol>
+<symbol id="fl-en" viewBox="0 0 60 40"><rect width="60" height="40" fill="#012169"/><path d="M0 0L60 40M60 0L0 40" stroke="#fff" stroke-width="8"/><path d="M0 0L60 40M60 0L0 40" stroke="#C8102E" stroke-width="3"/><path d="M30 0V40M0 20H60" stroke="#fff" stroke-width="13"/><path d="M30 0V40M0 20H60" stroke="#C8102E" stroke-width="8"/></symbol>
+</defs></svg>
+<div class="lp" id="lp" role="menu">
+<button data-l="hy" aria-pressed="false"><svg class="fl"><use href="#fl-am"/></svg>Հայերեն</button>
+<button data-l="en" aria-pressed="false"><svg class="fl"><use href="#fl-en"/></svg>English</button>
+<button data-l="ru" aria-pressed="false"><svg class="fl"><use href="#fl-ru"/></svg>Русский</button>
+</div>
 <nav id="nav">
 <svg class="w" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 20 Q150 0 300 20 T600 20 T900 20 T1200 20 V40 H0Z"/></svg>
 <a class="l" style="--i:0" href="#" data-go="home:about" data-i18n="nav_about"></a>
 <a class="l" style="--i:1" href="#" data-go="wines" data-i18n="nav_wines"></a>
 <a class="l" style="--i:2" href="#" data-go="home:order" data-i18n="nav_order"></a>
 <a class="l" style="--i:3" href="#" data-go="home:contact" data-i18n="nav_contact"></a>
-<div class="lang"><span data-i18n="nav_lang"></span>
-<button data-l="hy" aria-pressed="false">Հայերեն</button><button data-l="en" aria-pressed="false">English</button><button data-l="ru" aria-pressed="false">Русский</button></div>
 </nav>
 
 <main id="v-home">
@@ -194,6 +208,7 @@ footer{background:var(--deep);color:#cbbdb6;padding:40px 24px;text-align:center;
 <h2 data-i18n="nav_order"></h2>
 <p data-i18n="or_p"></p>
 <form id="f">
+<div class="hp" aria-hidden="true"><label>Website<input id="web" tabindex="-1" autocomplete="off"></label></div>
 <div class="f"><label for="co" data-i18n="l_co"></label><input id="co" required></div>
 <div class="f"><label for="nm" data-i18n="l_nm"></label><input id="nm" required autocomplete="name"></div>
 <div class="f"><label for="em" data-i18n="l_em"></label><input id="em" type="email" required autocomplete="email"></div>
@@ -204,11 +219,11 @@ footer{background:var(--deep);color:#cbbdb6;padding:40px 24px;text-align:center;
 <div class="f"><label for="pk" data-i18n="l_pk"></label><select id="pk"><option data-i18n="pk0"></option><option data-i18n="pk1"></option><option data-i18n="pk2"></option><option data-i18n="pk3"></option><option data-i18n="pk4"></option></select></div>
 <div class="f"><label for="st" data-i18n="l_st"></label><select id="st"><option data-i18n="st0"></option><option data-i18n="st1"></option><option data-i18n="st2"></option><option data-i18n="st3"></option><option data-i18n="st4"></option></select></div>
 <div class="f chk full"><input id="tt" type="checkbox"><label for="tt" data-i18n="l_tt"></label></div>
-<div class="f full"><label for="lg" data-i18n="l_lg"></label><input id="lg" type="file" accept="image/*,.pdf,.svg,.ai"><span class="note" data-i18n="n_lg"></span></div>
+<div class="f full"><label for="lg" data-i18n="l_lg"></label><input id="lg" type="file" accept="image/png,image/jpeg,application/pdf"><span class="note" data-i18n="n_lg"></span></div>
 <div class="f full"><label for="ms" data-i18n="l_ms"></label><textarea id="ms" data-ph="ph_ms"></textarea></div>
 <div class="full"><button class="btn" type="submit" data-i18n="b_send"></button></div>
 </form>
-<div id="ok" role="status" data-i18n="ok"></div>
+<div id="ok" role="status"></div>
 </div>
 </section>
 
@@ -318,7 +333,7 @@ wt_h:"Our wine",wt_name:"Areni from Rind",wt_p:"Dry red wine made from Areni gra
 cu_h:"Made to match your brand",cu_p:"We work with you to develop a look that fits your company’s identity.",c1_t:"Choose a design",c1_d:"We present design options.",c2_t:"Your brand",c2_d:"We tailor the label to your logo and style.",c3_t:"Packaging",c3_d:"We discuss bottle and gift-packaging options.",cu_note:"The final design is agreed before the order is confirmed.",
 pr_h:"A simple process",p1_t:"Get in touch",p1_d:"Share your preferences and estimated quantity.",p2_t:"Tasting & design",p2_d:"We arrange a tasting and discuss the design, if you wish.",p3_t:"Confirm the order",p3_d:"We agree on quantity, pricing and delivery terms.",
 or_p:"Tell us about your company and your needs. We will reply to discuss design options, quantity and price.",
-l_co:"Company name",l_nm:"Contact person",l_em:"Email",l_ph:"Phone",l_ty:"What do you need?",ty1:"Wine for a corporate event",ty2:"Bottles with our logo (gifts)",ty3:"Both",l_qt:"Estimated number of bottles",l_dt:"Event or delivery date",l_pk:"Packaging",pk0:"Not sure yet",pk1:"Gift box",pk2:"Wooden box",pk3:"Gift bag",pk4:"Bottle only",l_st:"Label style",st0:"Not sure yet",st1:"Classic",st2:"Premium",st3:"Modern",st4:"Minimal",l_tt:"I would like a tasting",l_lg:"Company logo",n_lg:"Your email app opens when you send. Attach the logo file to that email.",l_ms:"Details",ph_ms:"Event type, delivery address, label wishes",b_send:"Send request",ok:"Thank you. Your email app should open with your request. If it does not, write to kamari.cheese@gmail.com.",
+l_co:"Company name",l_nm:"Contact person",l_em:"Email",l_ph:"Phone",l_ty:"What do you need?",ty1:"Wine for a corporate event",ty2:"Bottles with our logo (gifts)",ty3:"Both",l_qt:"Estimated number of bottles",l_dt:"Event or delivery date",l_pk:"Packaging",pk0:"Not sure yet",pk1:"Gift box",pk2:"Wooden box",pk3:"Gift bag",pk4:"Bottle only",l_st:"Label style",st0:"Not sure yet",st1:"Classic",st2:"Premium",st3:"Modern",st4:"Minimal",l_tt:"I would like a tasting",l_lg:"Company logo",n_lg:"Your email app opens when you send. Attach the logo file to that email.",l_ms:"Details",ph_ms:"Event type, delivery address, label wishes",b_send:"Send request",ok:"Thank you! Your request has been sent. We will get back to you soon.",n_lg:"PNG, JPG or PDF, up to 2 MB.",sending:"Sending…",err_rate:"Too many requests from your network. Please try again in 10 minutes.",err_gen:"Something went wrong. Please check the form and try again, or write to kamari.cheese@gmail.com.",err_file:"The logo file is too large or not allowed (PNG, JPG or PDF, up to 2 MB).",ok_mail:"Thank you. Your email app should open with your request. If it does not, write to kamari.cheese@gmail.com.",
 ct_mail:"Email",ct_phone:"Phone",ct_find:"Find us",ct_addr:"Areni • Rind, Vayots Dzor, Armenia",
 w_p:"Dry red wine from Areni grapes, grown in Rind, Vayots Dzor, Armenia.",v_size:"0.75 L",v_grape:"Areni",v_cap:"2,000–5,000",s_size:"Bottle size",s_alc:"Alcohol",s_grape:"Grape variety",s_cap:"Production capacity (bottles)",
 g_h:"Bottles and vineyards",g_p:"Photos of our bottles and vineyards. More photos will be added soon.",g1:"Bottle photo",g2:"Vineyard photo",
@@ -332,7 +347,7 @@ wt_h:"Մեր գինին",wt_name:"Արենի՝ Ռինդից",wt_p:"Չոր կար
 cu_h:"Համապատասխանեցված Ձեր բրենդին",cu_p:"Մենք համագործակցում ենք Ձեզ հետ՝ Ձեր ընկերության ոճին համապատասխան տարբերակ մշակելու համար։",c1_t:"Դիզայնի ընտրություն",c1_d:"Ներկայացնում ենք դիզայնի տարբերակներ։",c2_t:"Ձեր բրենդը",c2_d:"Հարմարեցնում ենք պիտակը Ձեր տարբերանշանին և ոճին։",c3_t:"Փաթեթավորում",c3_d:"Քննարկում ենք շշի և նվերային փաթեթավորման տարբերակները։",cu_note:"Վերջնական տարբերակը համաձայնեցվում է պատվերից առաջ։",
 pr_h:"Պարզ գործընթաց",p1_t:"Կապ հաստատեք",p1_d:"Ներկայացրեք Ձեր նախընտրությունները և մոտավոր քանակը։",p2_t:"Համտես և դիզայն",p2_d:"Ցանկության դեպքում կազմակերպում ենք համտես և քննարկում դիզայնը։",p3_t:"Համաձայնեցում",p3_d:"Համաձայնեցնում ենք քանակը, գինը և մատակարարման պայմանները։",
 or_p:"Պատմեք մեզ Ձեր ընկերության և կարիքների մասին։ Մենք կպատասխանենք՝ քննարկելու դիզայնի տարբերակները, քանակը և գինը։",
-l_co:"Ընկերության անվանումը",l_nm:"Կոնտակտային անձ",l_em:"Էլ. փոստ",l_ph:"Հեռախոս",l_ty:"Ի՞նչ է Ձեզ անհրաժեշտ",ty1:"Գինի կորպորատիվ միջոցառման համար",ty2:"Ձեր տարբերանշանով շշեր (նվերների համար)",ty3:"Երկուսն էլ",l_qt:"Շշերի մոտավոր քանակը",l_dt:"Միջոցառման կամ առաքման ամսաթիվ",l_pk:"Փաթեթավորում",pk0:"Դեռ չգիտեմ",pk1:"Նվերային տուփ",pk2:"Փայտե տուփ",pk3:"Նվերային պայուսակ",pk4:"Միայն շիշ",l_st:"Պիտակի ոճ",st0:"Դեռ չգիտեմ",st1:"Դասական",st2:"Պրեմիում",st3:"Ժամանակակից",st4:"Մինիմալիստական",l_tt:"Ցանկանում եմ համտես",l_lg:"Ընկերության տարբերանշան",n_lg:"Ուղարկելիս կբացվի Ձեր էլ. փոստի ծրագիրը։ Տարբերանշանի ֆայլը կցեք այդ նամակին։",l_ms:"Մանրամասներ",ph_ms:"Միջոցառման տեսակը, առաքման հասցեն, պիտակի ցանկությունները",b_send:"Ուղարկել հարցումը",ok:"Շնորհակալություն։ Ձեր էլ. փոստի ծրագիրը պետք է բացվի Ձեր հարցումով։ Եթե չբացվի, գրեք kamari.cheese@gmail.com հասցեին։",
+l_co:"Ընկերության անվանումը",l_nm:"Կոնտակտային անձ",l_em:"Էլ. փոստ",l_ph:"Հեռախոս",l_ty:"Ի՞նչ է Ձեզ անհրաժեշտ",ty1:"Գինի կորպորատիվ միջոցառման համար",ty2:"Ձեր տարբերանշանով շշեր (նվերների համար)",ty3:"Երկուսն էլ",l_qt:"Շշերի մոտավոր քանակը",l_dt:"Միջոցառման կամ առաքման ամսաթիվ",l_pk:"Փաթեթավորում",pk0:"Դեռ չգիտեմ",pk1:"Նվերային տուփ",pk2:"Փայտե տուփ",pk3:"Նվերային պայուսակ",pk4:"Միայն շիշ",l_st:"Պիտակի ոճ",st0:"Դեռ չգիտեմ",st1:"Դասական",st2:"Պրեմիում",st3:"Ժամանակակից",st4:"Մինիմալիստական",l_tt:"Ցանկանում եմ համտես",l_lg:"Ընկերության տարբերանշան",n_lg:"Ուղարկելիս կբացվի Ձեր էլ. փոստի ծրագիրը։ Տարբերանշանի ֆայլը կցեք այդ նամակին։",l_ms:"Մանրամասներ",ph_ms:"Միջոցառման տեսակը, առաքման հասցեն, պիտակի ցանկությունները",b_send:"Ուղարկել հարցումը",ok:"Շնորհակալություն։ Ձեր հարցումն ուղարկվել է։ Մենք շուտով կպատասխանենք։",n_lg:"PNG, JPG կամ PDF, առավելագույնը 2 ՄԲ։",sending:"Ուղարկվում է…",err_rate:"Ձեր ցանցից չափազանց շատ հարցումներ են ուղարկվել։ Խնդրում ենք փորձել 10 րոպեից։",err_gen:"Սխալ առաջացավ։ Ստուգեք ձևը և կրկին փորձեք կամ գրեք kamari.cheese@gmail.com հասցեին։",err_file:"Տարբերանշանի ֆայլը չափազանց մեծ է կամ թույլատրելի չէ (PNG, JPG կամ PDF, առավելագույնը 2 ՄԲ)։",ok_mail:"Շնորհակալություն։ Ձեր էլ. փոստի ծրագիրը պետք է բացվի Ձեր հարցումով։ Եթե չբացվի, գրեք kamari.cheese@gmail.com հասցեին։",
 ct_mail:"Էլ. փոստ",ct_phone:"Հեռախոս",ct_find:"Գտեք մեզ",ct_addr:"Արենի • Ռինդ, Վայոց ձոր, Հայաստան",
 w_p:"Չոր կարմիր գինի Արենի խաղողից, աճեցված Ռինդում, Վայոց ձոր, Հայաստան։",v_size:"0.75 լ",v_grape:"Արենի",v_cap:"2,000–5,000",s_size:"Շշի տարողություն",s_alc:"Ալկոհոլ",s_grape:"Խաղողի տեսակ",s_cap:"Արտադրության հնարավոր ծավալ (շիշ)",
 g_h:"Շշեր և խաղողի այգիներ",g_p:"Մեր շշերի և խաղողի այգիների լուսանկարները։ Շուտով կավելացվեն նոր նկարներ։",g1:"Շշի լուսանկար",g2:"Այգու լուսանկար",
@@ -346,7 +361,7 @@ wt_h:"Наше вино",wt_name:"Арени из Ринда",wt_p:"Сухое �
 cu_h:"В стиле вашего бренда",cu_p:"Мы вместе с вами разрабатываем вариант, который соответствует имиджу вашей компании.",c1_t:"Выбор дизайна",c1_d:"Мы предлагаем варианты дизайна.",c2_t:"Ваш бренд",c2_d:"Подгоняем этикетку под ваш логотип и стиль.",c3_t:"Упаковка",c3_d:"Обсуждаем варианты бутылки и подарочной упаковки.",cu_note:"Окончательный вариант согласовывается до подтверждения заказа.",
 pr_h:"Простой процесс",p1_t:"Свяжитесь с нами",p1_d:"Сообщите ваши пожелания и примерное количество.",p2_t:"Дегустация и дизайн",p2_d:"По желанию организуем дегустацию и обсуждаем дизайн.",p3_t:"Согласование",p3_d:"Согласовываем количество, цену и условия поставки.",
 or_p:"Расскажите о вашей компании и потребностях. Мы ответим, чтобы обсудить варианты дизайна, количество и цену.",
-l_co:"Название компании",l_nm:"Контактное лицо",l_em:"Эл. почта",l_ph:"Телефон",l_ty:"Что вам нужно?",ty1:"Вино для корпоративного мероприятия",ty2:"Бутылки с нашим логотипом (подарки)",ty3:"И то, и другое",l_qt:"Примерное количество бутылок",l_dt:"Дата мероприятия или доставки",l_pk:"Упаковка",pk0:"Пока не знаю",pk1:"Подарочная коробка",pk2:"Деревянный ящик",pk3:"Подарочный пакет",pk4:"Только бутылка",l_st:"Стиль этикетки",st0:"Пока не знаю",st1:"Классика",st2:"Премиум",st3:"Современный",st4:"Минимализм",l_tt:"Хочу дегустацию",l_lg:"Логотип компании",n_lg:"При отправке откроется ваша почтовая программа. Прикрепите файл логотипа к этому письму.",l_ms:"Подробности",ph_ms:"Тип мероприятия, адрес доставки, пожелания по этикетке",b_send:"Отправить заявку",ok:"Спасибо. Ваша почтовая программа должна открыться с вашей заявкой. Если этого не произошло, напишите на kamari.cheese@gmail.com.",
+l_co:"Название компании",l_nm:"Контактное лицо",l_em:"Эл. почта",l_ph:"Телефон",l_ty:"Что вам нужно?",ty1:"Вино для корпоративного мероприятия",ty2:"Бутылки с нашим логотипом (подарки)",ty3:"И то, и другое",l_qt:"Примерное количество бутылок",l_dt:"Дата мероприятия или доставки",l_pk:"Упаковка",pk0:"Пока не знаю",pk1:"Подарочная коробка",pk2:"Деревянный ящик",pk3:"Подарочный пакет",pk4:"Только бутылка",l_st:"Стиль этикетки",st0:"Пока не знаю",st1:"Классика",st2:"Премиум",st3:"Современный",st4:"Минимализм",l_tt:"Хочу дегустацию",l_lg:"Логотип компании",n_lg:"При отправке откроется ваша почтовая программа. Прикрепите файл логотипа к этому письму.",l_ms:"Подробности",ph_ms:"Тип мероприятия, адрес доставки, пожелания по этикетке",b_send:"Отправить заявку",ok:"Спасибо! Ваша заявка отправлена. Мы скоро свяжемся с вами.",n_lg:"PNG, JPG или PDF, до 2 МБ.",sending:"Отправка…",err_rate:"С вашей сети отправлено слишком много заявок. Попробуйте снова через 10 минут.",err_gen:"Что-то пошло не так. Проверьте форму и попробуйте ещё раз или напишите на kamari.cheese@gmail.com.",err_file:"Файл логотипа слишком большой или не подходит (PNG, JPG или PDF, до 2 МБ).",ok_mail:"Спасибо. Ваша почтовая программа должна открыться с вашей заявкой. Если этого не произошло, напишите на kamari.cheese@gmail.com.",
 ct_mail:"Эл. почта",ct_phone:"Телефон",ct_find:"Как нас найти",ct_addr:"Арени • Ринд, Вайоц Дзор, Армения",
 w_p:"Сухое красное вино из винограда Арени, выращенного в Ринде, Вайоц Дзор, Армения.",v_size:"0,75 л",v_grape:"Арени",v_cap:"2 000–5 000",s_size:"Объём бутылки",s_alc:"Алкоголь",s_grape:"Сорт винограда",s_cap:"Возможный объём производства (бутылок)",
 g_h:"Бутылки и виноградники",g_p:"Фотографии наших бутылок и виноградников. Скоро добавим новые.",g1:"Фото бутылки",g2:"Фото виноградника",
@@ -358,7 +373,7 @@ function setL(l){
 L=l;var d=T[l];document.documentElement.lang=l;
 document.querySelectorAll('[data-i18n]').forEach(function(e){var v=d[e.dataset.i18n];if(v!=null)e.textContent=v});
 document.querySelectorAll('[data-ph]').forEach(function(e){e.placeholder=d[e.dataset.ph]||''});
-document.querySelectorAll('.lang button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.l===l)});
+document.querySelectorAll('.lp button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.l===l)});
 try{localStorage.setItem('rm_l',l)}catch(e){}
 }
 function tg(o){nv.classList.toggle('open',o);bg.setAttribute('aria-expanded',o)}
@@ -374,19 +389,42 @@ setTimeout(fill,120);
 document.addEventListener('click',function(e){
 var a=e.target.closest('[data-go]');
 if(a){e.preventDefault();var p=a.dataset.go.split(':');go(p[0],p[1])}
-var b=e.target.closest('.lang button');if(b)setL(b.dataset.l);
+var b=e.target.closest('.lp button');if(b){setL(b.dataset.l);lg_(false)}
 });
-bg.onclick=function(){tg(!nv.classList.contains('open'))};
-document.addEventListener('keydown',function(e){if(e.key==='Escape')tg(false)});
+var lp=document.getElementById('lp'),gb=document.getElementById('gb');
+function lg_(o){lp.classList.toggle('open',o);gb.setAttribute('aria-expanded',o)}
+gb.onclick=function(e){e.stopPropagation();lg_(!lp.classList.contains('open'))};
+document.addEventListener('click',function(e){if(!e.target.closest('#lp'))lg_(false)});
+bg.onclick=function(){lg_(false);tg(!nv.classList.contains('open'))};
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){tg(false);lg_(false)}});
 addEventListener('scroll',fill,{passive:true});
-document.getElementById('f').onsubmit=function(e){
+var t0=Date.now();
+document.getElementById('f').onsubmit=async function(e){
 e.preventDefault();
+var form=this,d=T[L],box=document.getElementById('ok'),btn=form.querySelector('button[type=submit]');
+function say(m,bad){box.textContent=m;box.style.background=bad?'#8a2a45':'';box.style.display='block'}
 var g=function(i){return document.getElementById(i).value};
-var sel=function(i){var s=document.getElementById(i);return s.options[s.selectedIndex].text};
-var f=document.getElementById('lg').files[0];
-var b='Company: '+g('co')+'\nContact: '+g('nm')+'\nEmail: '+g('em')+'\nPhone: '+g('ph')+'\nRequest: '+sel('ty')+'\nBottles: '+g('qt')+'\nDate: '+g('dt')+'\nPackaging: '+sel('pk')+'\nLabel style: '+sel('st')+'\nTasting: '+(document.getElementById('tt').checked?'yes':'no')+'\nLogo file: '+(f?f.name+' (attached separately)':'none')+'\nPage language: '+L+'\n\n'+g('ms');
-document.getElementById('ok').style.display='block';
-location.href='mailto:kamari.cheese@gmail.com?subject='+encodeURIComponent('Order request – '+g('co'))+'&body='+encodeURIComponent(b);
+var ix=function(i){return document.getElementById(i).selectedIndex};
+var en=T.en,f=document.getElementById('lg').files[0],logo=null;
+if(f){
+if(!/^(image\/png|image\/jpeg|application\/pdf)$/.test(f.type)||f.size>2097152){say(d.err_file,true);return}
+logo=await new Promise(function(r){var fr=new FileReader();fr.onload=function(){r({name:f.name,type:f.type,data:String(fr.result).split(',')[1]})};fr.readAsDataURL(f)});
+}
+var data={company:g('co'),name:g('nm'),email:g('em'),phone:g('ph'),type:en['ty'+(ix('ty')+1)],qty:g('qt'),date:g('dt'),packaging:en['pk'+ix('pk')],style:en['st'+ix('st')],tasting:document.getElementById('tt').checked,message:g('ms'),lang:L,hp:g('web'),elapsed:Date.now()-t0,logo:logo};
+function viaMail(){
+var b='Company: '+data.company+'\nContact: '+data.name+'\nEmail: '+data.email+'\nPhone: '+data.phone+'\nRequest: '+data.type+'\nBottles: '+data.qty+'\nDate: '+data.date+'\nPackaging: '+data.packaging+'\nLabel style: '+data.style+'\nTasting: '+(data.tasting?'yes':'no')+'\nLogo file: '+(f?f.name+' (attach it to this email)':'none')+'\n\n'+data.message;
+say(d.ok_mail);
+location.href='mailto:kamari.cheese@gmail.com?subject='+encodeURIComponent('Order request – '+data.company)+'&body='+encodeURIComponent(b);
+}
+btn.disabled=true;btn.textContent=d.sending;
+try{
+var r=await fetch('/api/order',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
+if(r.ok){say(d.ok);form.reset();t0=Date.now()}
+else if(r.status===429){say(d.err_rate,true)}
+else if(r.status===400||r.status===413){say(d.err_gen,true)}
+else{viaMail()}
+}catch(x){viaMail()}
+btn.disabled=false;btn.textContent=d.b_send;
 };
 var sl=null;try{sl=localStorage.getItem('rm_l')}catch(e){}
 var nl=(navigator.language||'en').slice(0,2).toLowerCase();
