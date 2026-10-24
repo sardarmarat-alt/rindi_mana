@@ -411,19 +411,14 @@ if(!/^(image\/png|image\/jpeg|application\/pdf)$/.test(f.type)||f.size>2097152){
 logo=await new Promise(function(r){var fr=new FileReader();fr.onload=function(){r({name:f.name,type:f.type,data:String(fr.result).split(',')[1]})};fr.readAsDataURL(f)});
 }
 var data={company:g('co'),name:g('nm'),email:g('em'),phone:g('ph'),type:en['ty'+(ix('ty')+1)],qty:g('qt'),date:g('dt'),packaging:en['pk'+ix('pk')],style:en['st'+ix('st')],tasting:document.getElementById('tt').checked,message:g('ms'),lang:L,hp:g('web'),elapsed:Date.now()-t0,logo:logo};
-function viaMail(){
-var b='Company: '+data.company+'\nContact: '+data.name+'\nEmail: '+data.email+'\nPhone: '+data.phone+'\nRequest: '+data.type+'\nBottles: '+data.qty+'\nDate: '+data.date+'\nPackaging: '+data.packaging+'\nLabel style: '+data.style+'\nTasting: '+(data.tasting?'yes':'no')+'\nLogo file: '+(f?f.name+' (attach it to this email)':'none')+'\n\n'+data.message;
-say(d.ok_mail);
-location.href='mailto:kamari.cheese@gmail.com?subject='+encodeURIComponent('Order request – '+data.company)+'&body='+encodeURIComponent(b);
-}
 btn.disabled=true;btn.textContent=d.sending;
 try{
 var r=await fetch('/api/order',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
 if(r.ok){say(d.ok);form.reset();t0=Date.now()}
 else if(r.status===429){say(d.err_rate,true)}
 else if(r.status===400||r.status===413){say(d.err_gen,true)}
-else{viaMail()}
-}catch(x){viaMail()}
+else{say(d.err_gen,true)}
+}catch(x){say(d.err_gen,true)}
 btn.disabled=false;btn.textContent=d.b_send;
 };
 var sl=null;try{sl=localStorage.getItem('rm_l')}catch(e){}
