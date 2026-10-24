@@ -35,7 +35,7 @@ nav{position:fixed;inset:0;z-index:15;background:#5E1A2E;display:flex;flex-direc
 nav.open{transform:none;visibility:visible;transition:transform .8s cubic-bezier(.65,0,.25,1),visibility 0s}
 nav .w{position:absolute;left:0;top:-39px;width:200%;height:40px;animation:sl 3.5s linear infinite}
 nav .w path{fill:#5E1A2E}
-nav .l{font:600 2.3rem var(--serif);color:var(--onwine);text-decoration:none;padding:6px 0;border-bottom:1px solid #ffffff22;opacity:0;transform:translateY(16px);transition:opacity .5s,transform .5s}
+nav .l{font:600 2.1rem var(--serif);color:var(--onwine);text-decoration:none;padding:6px 0;border-bottom:1px solid #ffffff22;opacity:0;transform:translateY(16px);transition:opacity .5s,transform .5s}
 nav.open .l{opacity:1;transform:none;transition-delay:calc(.45s + var(--i)*.1s)}
 .hr{display:flex;align-items:center;gap:2px}
 .gl{background:none;border:0;width:44px;height:44px;cursor:pointer;display:grid;place-content:center;color:var(--onwine)}
@@ -130,6 +130,31 @@ footer{background:var(--deep);color:#cbbdb6;padding:40px 24px;text-align:center;
 .contact a{color:var(--wine);font-weight:600}
 @media(prefers-color-scheme:dark){.contact a,.link{color:var(--gold)}.spec b{color:var(--gold)}}
 @media(max-width:600px){form{grid-template-columns:1fr}}
+.gal{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+.gal figure{margin:0;aspect-ratio:1;border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,.45);box-shadow:0 14px 36px rgba(42,16,25,.22)}
+.gal img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+.gal figure:hover img{transform:scale(1.06)}
+.vid{max-width:320px;margin:0 auto;aspect-ratio:9/16;border-radius:20px;overflow:hidden;box-shadow:0 18px 44px rgba(42,16,25,.3);background:#14080d}
+.vid video{width:100%;height:100%;object-fit:cover;display:block}
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:26px}
+.chip{font:500 .95rem var(--sans);color:var(--ink);background:rgba(255,255,255,.5);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.75);border-radius:999px;padding:9px 20px;cursor:pointer;box-shadow:inset 0 1px 0 #fff;transition:background .3s,color .3s}
+.chip[aria-pressed=true]{background:var(--wine);color:#fff;border-color:var(--wine)}
+@media(prefers-color-scheme:dark){.chip{background:rgba(255,255,255,.08);color:var(--onwine);border-color:rgba(255,255,255,.2);box-shadow:none}.chip[aria-pressed=true]{background:var(--wine)}}
+.mas{columns:2;column-gap:14px}
+@media(min-width:760px){.mas{columns:3}}
+.gt{display:block;position:relative;break-inside:avoid;margin:0 0 14px;border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,.5);box-shadow:0 14px 36px rgba(42,16,25,.22);cursor:zoom-in;background:#14080d}
+.gt img{width:100%;display:block;animation:kb 16s ease-in-out infinite alternate;animation-delay:var(--d,0s)}
+.gt:nth-child(3n) img{transform-origin:20% 30%}.gt:nth-child(3n+1) img{transform-origin:80% 70%}
+@keyframes kb{to{transform:scale(1.09)}}
+.js .gt.in:hover{transform:translateY(-6px)}
+.play{position:absolute;left:50%;top:50%;width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:50%;background:rgba(255,255,255,.2);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.55);display:grid;place-items:center;color:#fff;font-size:22px;padding-left:4px;box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 8px 24px rgba(0,0,0,.35)}
+.lb{position:fixed;inset:0;z-index:50;background:rgba(14,5,9,.82);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);display:flex;align-items:center;justify-content:center;padding:64px 16px}
+.lbs{max-width:min(960px,100%);max-height:100%;display:flex}
+.lbs img,.lbs video{max-width:100%;max-height:calc(100vh - 130px);border-radius:18px;box-shadow:0 30px 80px rgba(0,0,0,.6);animation:lbin .5s cubic-bezier(.2,.9,.25,1.1)}
+@keyframes lbin{from{opacity:0;transform:scale(.92);filter:blur(8px)}}
+.lb button{position:absolute;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.35);color:#fff;width:46px;height:46px;border-radius:50%;font-size:28px;cursor:pointer;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);display:grid;place-items:center;line-height:1;padding:0 0 3px}
+.lbx{top:calc(14px + env(safe-area-inset-top,0px));right:14px}.lbp{left:12px;top:50%;margin-top:-23px}.lbn{right:12px;top:50%;margin-top:-23px}
+.lbc{position:absolute;bottom:calc(18px + env(safe-area-inset-bottom,0px));left:0;right:0;text-align:center;color:#e8dccf;font-size:.9rem}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}.js .rv{opacity:1;transform:none;filter:none}.bl{transform:none}}
 </style>
 </head>
@@ -154,8 +179,9 @@ footer{background:var(--deep);color:#cbbdb6;padding:40px 24px;text-align:center;
 <svg class="w" viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true"><path d="M0 20 Q150 0 300 20 T600 20 T900 20 T1200 20 V40 H0Z"/></svg>
 <a class="l" style="--i:0" href="#" data-go="home:about" data-i18n="nav_about"></a>
 <a class="l" style="--i:1" href="#" data-go="wines" data-i18n="nav_wines"></a>
-<a class="l" style="--i:2" href="#" data-go="home:order" data-i18n="nav_order"></a>
-<a class="l" style="--i:3" href="#" data-go="home:contact" data-i18n="nav_contact"></a>
+<a class="l" style="--i:2" href="#" data-go="gallery" data-i18n="nav_gallery"></a>
+<a class="l" style="--i:3" href="#" data-go="home:order" data-i18n="nav_order"></a>
+<a class="l" style="--i:4" href="#" data-go="home:contact" data-i18n="nav_contact"></a>
 </nav>
 
 <main id="v-home">
@@ -195,7 +221,7 @@ footer{background:var(--deep);color:#cbbdb6;padding:40px 24px;text-align:center;
 <section class="band">
 <div class="in">
 <h2 data-i18n="wt_h"></h2>
-<div class="card teaser"><img src="areni-bottles.jpg" alt="Rindi Mana Areni"><div class="body"><h3 data-i18n="wt_name"></h3><p data-i18n="wt_p"></p><p style="margin-top:10px"><button class="link" data-go="wines" data-i18n="wt_more"></button></p></div></div>
+<div class="card teaser"><img src="images/bottle-grass.jpg" alt="Rindi Mana Areni"><div class="body"><h3 data-i18n="wt_name"></h3><p data-i18n="wt_p"></p><p style="margin-top:10px"><button class="link" data-go="wines" data-i18n="wt_more"></button></p></div></div>
 </div>
 </section>
 
@@ -272,7 +298,7 @@ footer{background:var(--deep);color:#cbbdb6;padding:40px 24px;text-align:center;
 
 <section>
 <div class="in two">
-<img class="pic" src="areni-bottles.jpg" alt="Rindi Mana Areni">
+<img class="pic" src="images/bottle-grass.jpg" alt="Rindi Mana Areni">
 <div>
 <h2 data-i18n="wt_name"></h2>
 <p data-i18n="wt_p"></p>
@@ -288,17 +314,21 @@ footer{background:var(--deep);color:#cbbdb6;padding:40px 24px;text-align:center;
 
 <section class="band">
 <div class="in">
-<h2 data-i18n="g_h"></h2>
-<p data-i18n="g_p"></p>
-<div class="grid">
-<div class="slot" data-i18n="g1"></div><div class="slot" data-i18n="g1"></div><div class="slot" data-i18n="g2"></div><div class="slot" data-i18n="g2"></div>
+<h2 data-i18n="nav_gallery"></h2>
+<p data-i18n="gl_p"></p>
+<div class="gal" data-go="gallery" style="cursor:pointer">
+<figure><img src="images/basket.jpg" alt="Rindi Mana Areni bottle in a basket" loading="lazy"></figure>
+<figure><img src="images/label-closeup.jpg" alt="Close-up of the Rindi Mana label" loading="lazy"></figure>
+<figure><img src="images/grapes.jpg" alt="Areni grapes on the vine" loading="lazy"></figure>
+<figure><img src="images/vineyard-1.jpg" alt="Vineyard in Rind, Vayots Dzor" loading="lazy"></figure>
 </div>
+<p style="margin-top:22px"><button class="btn" data-go="gallery" data-i18n="wg_b"></button></p>
 </div>
 </section>
 
 <section>
 <div class="in two">
-<img class="pic" src="sample-label.jpg" alt="Sample bottle with a company label" style="max-height:480px">
+<img class="pic" src="images/sample-label.jpg" alt="Sample bottle with a company label" style="max-height:480px">
 <div>
 <h2 data-i18n="lb_h"></h2>
 <p data-i18n="lb_p"></p>
@@ -339,6 +369,36 @@ footer{background:var(--deep);color:#cbbdb6;padding:40px 24px;text-align:center;
 </section>
 </main>
 
+<main id="v-gallery" hidden>
+<div class="hero ph">
+<div class="in">
+<div class="kick">Rindi Mana</div>
+<h1 data-i18n="nav_gallery"></h1>
+<p data-i18n="gl_p"></p>
+</div>
+<div class="hw" aria-hidden="true"><svg viewBox="0 0 1200 44" preserveAspectRatio="none"><path d="M0 22 Q150 0 300 22 T600 22 T900 22 T1200 22 V44 H0Z"/></svg><svg viewBox="0 0 1200 30" preserveAspectRatio="none"><path d="M0 15 Q100 0 200 15 T400 15 T600 15 T800 15 T1000 15 T1200 15 V30 H0Z"/></svg></div>
+</div>
+<section>
+<div class="in">
+<div class="chips"><button class="chip" data-f="all" aria-pressed="true" data-i18n="gl_all"></button><button class="chip" data-f="b" aria-pressed="false" data-i18n="gb_h"></button><button class="chip" data-f="v" aria-pressed="false" data-i18n="gv_h"></button></div>
+<div class="mas">
+<a class="gt" href="#" data-c="b"><img src="images/bottle-grass.jpg" alt="Rindi Mana Areni bottle on the grass" loading="lazy"></a>
+<a class="gt" href="#" data-c="v"><img src="images/grapes.jpg" alt="Areni grapes on the vine" loading="lazy"></a>
+<a class="gt" href="#" data-c="b"><img src="images/basket.jpg" alt="Rindi Mana Areni bottle in a basket" loading="lazy"></a>
+<a class="gt" href="#" data-c="v"><img src="images/vineyard-harvest.jpg" alt="Working in the vineyard" loading="lazy"></a>
+<a class="gt" href="#" data-c="b"><img src="images/label-closeup.jpg" alt="Close-up of the Rindi Mana label" loading="lazy"></a>
+<a class="gt" href="#" data-c="v" data-video="images/harvest.mp4"><img src="images/harvest-poster.jpg" alt="Harvest video" loading="lazy"><span class="play" aria-hidden="true">&#9654;</span></a>
+<a class="gt" href="#" data-c="v"><img src="images/vineyard-1.jpg" alt="Vineyard in Rind, Vayots Dzor" loading="lazy"></a>
+<a class="gt" href="#" data-c="b"><img src="images/cheers.jpg" alt="Glasses of Rindi Mana wine" loading="lazy"></a>
+<a class="gt" href="#" data-c="b"><img src="images/cellar.jpg" alt="Bottles resting in the cellar" loading="lazy"></a>
+<a class="gt" href="#" data-c="v"><img src="images/vineyard-2.jpg" alt="Vineyard path with mountains behind" loading="lazy"></a>
+</div>
+</div>
+</section>
+</main>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Gallery"><button class="lbx" aria-label="Close">&times;</button><button class="lbp" aria-label="Previous">&#8249;</button><div class="lbs" id="lbs"></div><button class="lbn" aria-label="Next">&#8250;</button><div class="lbc" id="lbc"></div></div>
+
 <footer>KAMARI LLC • RINDI MANA</footer>
 
 <div class="sg" aria-hidden="true"><svg viewBox="0 0 60 100"><defs><clipPath id="gc"><path d="M8 6H52C52 40 46 56 30 58C14 56 8 40 8 6Z"/></clipPath></defs><g clip-path="url(#gc)"><g id="lv" style="transform:translateY(58px)"><rect x="0" y="0" width="60" height="70" fill="#8a1f40"/><path class="sw" d="M0 4Q10 0 20 4T40 4T60 4T80 4T100 4V8H0Z" transform="translate(0 -4)" fill="#8a1f40"/></g></g><path d="M8 6H52C52 40 46 56 30 58C14 56 8 40 8 6Z" fill="none" stroke="#B8975A" stroke-width="2"/><path d="M30 58V90M18 92H42" stroke="#B8975A" stroke-width="2.5" stroke-linecap="round"/></svg></div>
@@ -357,7 +417,7 @@ l_co:"Company name",l_nm:"Contact person",l_em:"Email",l_ph:"Phone",l_ty:"What d
 ct_mail:"Email",ct_phone:"Phone",ct_find:"Find us",ct_addr:"Areni • Rind, Vayots Dzor, Armenia",
 w_p:"Dry red wine from Areni grapes, grown in Rind, Vayots Dzor, Armenia.",v_size:"0.75 L",v_grape:"Areni",v_cap:"2,000–5,000",s_size:"Bottle size",s_alc:"Alcohol",s_grape:"Grape variety",s_cap:"Production capacity (bottles)",
 g_h:"Bottles and vineyards",g_p:"Photos of our bottles and vineyards. More photos will be added soon.",g1:"Bottle photo",g2:"Vineyard photo",
-lb_h:"Your label on our wine",lb_p:"A sample bottle with a company’s own label. Your logo and colours can go on the same wine.",lb_s:"Sample label for illustration.",sty_h:"Label styles",pa_h:"Packaging options",
+gb_h:"Bottles",gv_h:"Vineyards",hv_h:"Harvest",nav_gallery:"Gallery",gl_all:"All",gl_p:"Our bottles, vineyards and harvest in Rind.",wg_b:"See the gallery",lb_h:"Your label on our wine",lb_p:"A sample bottle with a company’s own label. Your logo and colours can go on the same wine.",lb_s:"Sample label for illustration.",sty_h:"Label styles",pa_h:"Packaging options",
 by_h:"Order for your company",by_p:"Order our wine for corporate events, or as gifts with your logo.",by_b:"Go to the order form"},
 hy:{nav_about:"Մեր մասին",nav_wines:"Մեր գինին",nav_order:"Պատվերի ձև",nav_contact:"Կապ",nav_lang:"Լեզու",
 hero_kick:"Կորպորատիվ նվերներ",hero_h1:"Անհատականացված գինու շշեր՝ Ձեր ընկերության ոճով",hero_p:"Արենի գինի Ռինդից, Վայոց ձոր, Հայաստան։ Ձեր տարբերանշանը և դիզայնը՝ յուրաքանչյուր շշի վրա։",cta_order:"Ուղարկել պատվեր",cta_wines:"Տեսնել մեր գինին",
@@ -371,7 +431,7 @@ l_co:"Ընկերության անվանումը",l_nm:"Կոնտակտային ա
 ct_mail:"Էլ. փոստ",ct_phone:"Հեռախոս",ct_find:"Գտեք մեզ",ct_addr:"Արենի • Ռինդ, Վայոց ձոր, Հայաստան",
 w_p:"Չոր կարմիր գինի Արենի խաղողից, աճեցված Ռինդում, Վայոց ձոր, Հայաստան։",v_size:"0.75 լ",v_grape:"Արենի",v_cap:"2,000–5,000",s_size:"Շշի տարողություն",s_alc:"Ալկոհոլ",s_grape:"Խաղողի տեսակ",s_cap:"Արտադրության հնարավոր ծավալ (շիշ)",
 g_h:"Շշեր և խաղողի այգիներ",g_p:"Մեր շշերի և խաղողի այգիների լուսանկարները։ Շուտով կավելացվեն նոր նկարներ։",g1:"Շշի լուսանկար",g2:"Այգու լուսանկար",
-lb_h:"Ձեր պիտակը մեր գինու վրա",lb_p:"Շիշ՝ ընկերության սեփական պիտակով։ Նույն գինու վրա կարող են լինել Ձեր տարբերանշանը և գույները։",lb_s:"Պիտակի օրինակ՝ պատկերացման համար։",sty_h:"Պիտակի ոճեր",pa_h:"Փաթեթավորման տարբերակներ",
+gb_h:"Շշեր",gv_h:"Խաղողի այգիներ",hv_h:"Բերքահավաք",nav_gallery:"Պատկերասրահ",gl_all:"Բոլորը",gl_p:"Մեր շշերը, խաղողի այգիները և բերքահավաքը Ռինդում։",wg_b:"Տեսնել պատկերասրահը",lb_h:"Ձեր պիտակը մեր գինու վրա",lb_p:"Շիշ՝ ընկերության սեփական պիտակով։ Նույն գինու վրա կարող են լինել Ձեր տարբերանշանը և գույները։",lb_s:"Պիտակի օրինակ՝ պատկերացման համար։",sty_h:"Պիտակի ոճեր",pa_h:"Փաթեթավորման տարբերակներ",
 by_h:"Պատվեր Ձեր ընկերության համար",by_p:"Պատվիրեք մեր գինին կորպորատիվ միջոցառումների համար կամ որպես նվեր՝ Ձեր տարբերանշանով։",by_b:"Անցնել պատվերի ձևին"},
 ru:{nav_about:"О нас",nav_wines:"Наше вино",nav_order:"Форма заказа",nav_contact:"Контакты",nav_lang:"Язык",
 hero_kick:"Корпоративные подарки",hero_h1:"Бутылки вина в стиле вашей компании",hero_p:"Персонализированное вино Арени из Ринда, Вайоц Дзор, Армения. Ваш логотип и дизайн на каждой бутылке.",cta_order:"Оставить заявку",cta_wines:"Посмотреть наше вино",
@@ -385,7 +445,7 @@ l_co:"Название компании",l_nm:"Контактное лицо",l_
 ct_mail:"Эл. почта",ct_phone:"Телефон",ct_find:"Как нас найти",ct_addr:"Арени • Ринд, Вайоц Дзор, Армения",
 w_p:"Сухое красное вино из винограда Арени, выращенного в Ринде, Вайоц Дзор, Армения.",v_size:"0,75 л",v_grape:"Арени",v_cap:"2 000–5 000",s_size:"Объём бутылки",s_alc:"Алкоголь",s_grape:"Сорт винограда",s_cap:"Возможный объём производства (бутылок)",
 g_h:"Бутылки и виноградники",g_p:"Фотографии наших бутылок и виноградников. Скоро добавим новые.",g1:"Фото бутылки",g2:"Фото виноградника",
-lb_h:"Ваша этикетка на нашем вине",lb_p:"Бутылка с собственной этикеткой компании. Ваш логотип и цвета можно разместить на этом же вине.",lb_s:"Пример этикетки для наглядности.",sty_h:"Стили этикеток",pa_h:"Варианты упаковки",
+gb_h:"Бутылки",gv_h:"Виноградники",hv_h:"Сбор урожая",nav_gallery:"Галерея",gl_all:"Все",gl_p:"Наши бутылки, виноградники и сбор урожая в Ринде.",wg_b:"Смотреть галерею",lb_h:"Ваша этикетка на нашем вине",lb_p:"Бутылка с собственной этикеткой компании. Ваш логотип и цвета можно разместить на этом же вине.",lb_s:"Пример этикетки для наглядности.",sty_h:"Стили этикеток",pa_h:"Варианты упаковки",
 by_h:"Заказ для вашей компании",by_p:"Закажите наше вино для корпоративных мероприятий или в подарок с вашим логотипом.",by_b:"Перейти к форме заказа"}
 };
 var L='en',bg=document.getElementById('bg'),nv=document.getElementById('nav'),lv=document.getElementById('lv');
@@ -399,7 +459,7 @@ try{localStorage.setItem('rm_l',l)}catch(e){}
 function tg(o){nv.classList.toggle('open',o);bg.setAttribute('aria-expanded',o)}
 function fill(){var m=document.documentElement.scrollHeight-innerHeight,p=m>0?Math.min(1,Math.max(0,scrollY/m)):0;lv.style.transform='translateY('+(58-p*46)+'px)'}
 function go(v,id){
-document.getElementById('v-home').hidden=v!=='home';document.getElementById('v-wines').hidden=v!=='wines';
+['home','wines','gallery'].forEach(function(n){document.getElementById('v-'+n).hidden=v!==n});
 tg(false);
 var el=id&&document.getElementById(id);
 if(el){setTimeout(function(){el.scrollIntoView({behavior:'smooth'})},40)}else{scrollTo(0,0)}
@@ -420,7 +480,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'){tg(false);l
 var hd=document.querySelector('header'),tk=false;
 function par(){tk=false;var y=scrollY;document.documentElement.style.setProperty('--sy',y);hd.classList.toggle('sc',y>30);fill()}
 addEventListener('scroll',function(){if(!tk){tk=true;requestAnimationFrame(par)}},{passive:true});
-document.querySelectorAll('.card,.spec,.slot,.facts>div,section h2,.pic').forEach(function(el){el.classList.add('rv');var i=Array.prototype.indexOf.call(el.parentNode.children,el);el.style.setProperty('--d',(Math.min(i,5)*.09)+'s')});
+document.querySelectorAll('.card,.spec,.slot,.facts>div,section h2,.pic,.gal figure,.vid,.gt').forEach(function(el){el.classList.add('rv');var i=Array.prototype.indexOf.call(el.parentNode.children,el);el.style.setProperty('--d',(Math.min(i,5)*.09)+'s')});
 if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.1,rootMargin:'0px 0px -5% 0px'});document.querySelectorAll('.rv').forEach(function(el){io.observe(el)})}else{document.querySelectorAll('.rv').forEach(function(el){el.classList.add('in')})}
 var t0=Date.now();
 document.getElementById('f').onsubmit=async function(e){
@@ -445,10 +505,26 @@ else{say(d.err_gen,true)}
 }catch(x){say(d.err_gen,true)}
 btn.disabled=false;btn.textContent=d.b_send;
 };
+var lb=document.getElementById('lb'),lbs=document.getElementById('lbs'),lbc=document.getElementById('lbc'),cur=0,list=[];
+function vis(){return [].slice.call(document.querySelectorAll('#v-gallery .gt:not([hidden])'))}
+function lbShow(i){list=vis();if(!list.length)return;cur=(i+list.length)%list.length;var a=list[cur],im=a.querySelector('img'),v=a.dataset.video,el;lbs.textContent='';
+if(v){el=document.createElement('video');el.src=v;el.poster=im.src;el.controls=true;el.autoplay=true;el.loop=true;el.muted=true;el.playsInline=true}else{el=document.createElement('img');el.src=im.src;el.alt=im.alt}
+lbs.appendChild(el);lbc.textContent=(cur+1)+' / '+list.length;lb.hidden=false;document.body.style.overflow='hidden'}
+function lbClose(){lb.hidden=true;lbs.textContent='';document.body.style.overflow=''}
+document.addEventListener('click',function(e){
+var t=e.target.closest('.gt');if(t){e.preventDefault();lbShow(vis().indexOf(t));return}
+var c=e.target.closest('.chip');
+if(c){var f=c.dataset.f;document.querySelectorAll('.chip').forEach(function(x){x.setAttribute('aria-pressed',x===c)});
+document.querySelectorAll('#v-gallery .gt').forEach(function(g){var show=f==='all'||g.dataset.c===f;g.hidden=!show;if(show){g.classList.remove('in');void g.offsetWidth;setTimeout(function(){g.classList.add('in')},40)}});return}
+if(!lb.hidden){if(e.target.closest('.lbx')||e.target===lb||e.target===lbs)lbClose();else if(e.target.closest('.lbp'))lbShow(cur-1);else if(e.target.closest('.lbn'))lbShow(cur+1)}
+});
+document.addEventListener('keydown',function(e){if(lb.hidden)return;if(e.key==='Escape')lbClose();else if(e.key==='ArrowLeft')lbShow(cur-1);else if(e.key==='ArrowRight')lbShow(cur+1)});
+var tx=null;lb.addEventListener('touchstart',function(e){tx=e.touches[0].clientX},{passive:true});
+lb.addEventListener('touchend',function(e){if(tx===null)return;var d=e.changedTouches[0].clientX-tx;tx=null;if(Math.abs(d)>50)lbShow(cur+(d<0?1:-1))});
 var sl=null;try{sl=localStorage.getItem('rm_l')}catch(e){}
 var nl=(navigator.language||'en').slice(0,2).toLowerCase();
 setL(T[sl]?sl:(T[nl]?nl:'en'));
-if((location.hash||'').slice(1)==='wines')go('wines');
+var h0=(location.hash||'').slice(1);if(h0==='wines'||h0==='gallery')go(h0);
 fill();
 </script>
 </body>
